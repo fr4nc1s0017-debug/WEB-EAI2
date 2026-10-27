@@ -1,0 +1,14 @@
+# Servicio exclusivamente estático, independiente de la API.
+services:
+  - type: web
+    name: webeai-web
+    runtime: static
+    buildCommand: echo "WebEAI estatico sin compilacion"
+    staticPublishPath: ./
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: no-referrer
